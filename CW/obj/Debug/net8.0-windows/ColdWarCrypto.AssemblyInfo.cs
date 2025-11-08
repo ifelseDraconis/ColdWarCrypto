@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ColdWarCrypto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+894e18a7107ae3519d6a36651cb7995e1f9436e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a67e639fa292552438d13f078588023823a22440")]
 [assembly: System.Reflection.AssemblyProductAttribute("ColdWarCrypto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ColdWarCrypto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

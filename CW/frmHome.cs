@@ -47,7 +47,9 @@ namespace ColdWarCrypto
                 picGiff.Visible = true;
                 isCodeCorrect = true;
             }
-            else
+            // if the code is incorrect and has not been entered correctly yet
+            // this tells you it is incorrect
+            else if ((txtCommandBox.Text != secretCode) && (isCodeCorrect == false))
             {
                 // incorrect code entered
                 // this clears the entry box and prompts the user to try again after a 5 second delay
@@ -60,7 +62,9 @@ namespace ColdWarCrypto
                 lblPrompt.Text = "Enter the secret code to continue:";
             }
 
-            if (isCodeCorrect)
+            // otherwise the code has been entered correctly
+            // and it starts to check for commands instead
+            if (isCodeCorrect == true)
             {
                 // if the code has been correctly input, read for other codes
                 if (txtCommandBox.Text == "Burn")
