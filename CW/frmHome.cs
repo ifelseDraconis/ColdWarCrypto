@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using System.Threading.Tasks;
 
 /* the goal of this program is to create a simple GUI application that prompts the user to enter a secret code.
@@ -36,7 +37,7 @@ namespace ColdWarCrypto
 
         private void btnGoCommand_ClickAsync(object sender, EventArgs e)
         {
-            if (txtCommandBox.Text == secretCode)
+            if ((txtCommandBox.Text == secretCode) && (isCodeCorrect == false))
             {
                 // correct code entered
                 // this changes the visibility of the giff to visible and changes the prompt on the label
@@ -57,6 +58,34 @@ namespace ColdWarCrypto
                 this.Refresh();
                 Thread.Sleep(5000);
                 lblPrompt.Text = "Enter the secret code to continue:";
+            }
+
+            if (isCodeCorrect)
+            {
+                // if the code has been correctly input, read for other codes
+                if (txtCommandBox.Text == "Burn")
+                {
+                    txtCommandBox.Clear();
+                    txtCommandBox.Visible = false;
+                    btnGoCommand.Visible = false;
+                    lblPrompt.Text = "Self Destruct Initiated. Terminating in 2 seconds...";
+                    frmHome.ActiveForm.Text = "Goodbye Comrade.";
+                    this.Refresh();
+                    Thread.Sleep(2000);
+                    Application.Exit();
+                }
+
+                if (txtCommandBox.Text == "Report")
+                {
+                    // provide the secret report by using the CentralIntelligenceAgency class
+                    // simulate sending and receiving encrypted data
+                    CentralIntelligenceAgency cia = new CentralIntelligenceAgency();
+                    string secretMessage = cia.GetSecretMessage();
+                    string encryptedData = cia.sendEncryptedData(secretMessage);
+                    string decryptedMessage = cia.receiveEncryptedData(encryptedData);
+                    MessageBox.Show($"Decrypted Message from CIA: {decryptedMessage}", "Secret Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCommandBox.Clear();
+                }
             }
         }
 
